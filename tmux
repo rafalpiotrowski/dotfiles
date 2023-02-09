@@ -42,15 +42,15 @@ set -g default-terminal "screen-256color"
 set-option -g status-position top
 set -g status-bg black
 set -g status-fg white
-set -g window-status-current-bg white
-set -g window-status-current-fg black
-set -g window-status-current-attr bold
-set -g status-interval 60
-set -g status-left-length 30
-set -g status-left ''
-set -g status-right '#[fg=green]#(whoami) #[fg=yellow]#S #[fg=white]#[bold]%H:%M'
-setw -g window-status-current-format "#I:#W"
-setw -g window-status-format "#I:#W"
+set -g window-status-current-bg-style white
+set -g window-status-current-fg-style black
+set -g window-status-current-attr-style bold
+set -g status-interval-style 60
+set -g status-left-length-style 30
+set -g status-left-style ''
+set -g status-right-style '#[fg=green]#(whoami) #[fg=yellow]#S #[fg=white]#[bold]%H:%M'
+setw -g window-status-current-format-style "#I:#W"
+setw -g window-status-format-style "#I:#W"
 
 # statusline theme
 # source "$HOME/.tmux/statusline"

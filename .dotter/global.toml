@@ -73,3 +73,11 @@ white        = "dddddd"
 #regular = "Ubuntu"
 #monospace = "Fira Code"
 #size = 12
+
+[zsh]
+depends = ["shell"]
+
+[zsh.files]
+zshrc = "~/.zshrc"
+
+[zsh.variables]
