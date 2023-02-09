@@ -93,3 +93,10 @@ cargo install exa
 cargo install devloop
 ```
 [https://github.com/rafalpiotrowski/devloop]
+
+# cmake
+```
+sudo apt install cmake
+error: failed to run custom build command for `servo-fontconfig-sys v5.1.0`
+sudo apt-get install libfontconfig libfontconfig1-dev
+```
