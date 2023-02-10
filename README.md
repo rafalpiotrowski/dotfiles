@@ -52,6 +52,7 @@ cargo install atuin
 [https://github.com/ellie/atuin]
 
 # zsh
+[https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where]
 ```
 sudo apt install zsh
 ```
@@ -99,4 +100,29 @@ cargo install devloop
 sudo apt install cmake
 error: failed to run custom build command for `servo-fontconfig-sys v5.1.0`
 sudo apt-get install libfontconfig libfontconfig1-dev
+```
+
+# PS3 camera
+to test if works
+```
+sudo apt-get install v4l-utils
+v4l2-ctl --list-devices
+sudo apt-get install guvcview
+guvcview
+sudo apt install cheese
+
+disable
+sudo modprobe -r uvcvideo
+enable
+sudo modprobe -a uvcvideo
+```
+
+```sudo rmmod -f uvcvideo```(to kill laptop camera)
+```sudo modprobe -r uvcvideo```(to restart the video module)
+```sudo modprobe uvcvideo```(to restart the laptop camera)
+```sudo modprobe -a uvcvideo```(can be used while skipping steps 2&3 to restart the camera directly)
+
+# Mouse freeze
+```
+sudo apt install powertop
 ```

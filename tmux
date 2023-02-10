@@ -1,59 +1,69 @@
-# prefix
+# remap prefix from 'C-b' to 'C-a'
 unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
-# mouse
+# split panes using | and -
+bind \ split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf
+
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Enable mouse control (clickable windows, panes, resizable panes)
+set -g mouse-select-window on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+
+# Enable mouse mode (tmux 2.1 and above)
 set -g mouse on
 
-# set window split
-bind-key v split-window -h
-bind-key b split-window
+# don't rename windows automatically
+set-option -g allow-rename off
 
-# Activity monitoring
-setw -g monitor-activity on
-set -g visual-activity on
+######################
+### DESIGN CHANGES ###
+######################
 
-# hjkl pane traversal
-bind -n M-h select-pane -L
-bind -n M-j select-pane -D
-bind -n M-k select-pane -U
-bind -n M-l select-pane -R
+# loud or quiet?
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+setw -g monitor-activity off
+set -g bell-action none
 
-# new window
-bind-key C command-prompt -p "Name of new window: " "new-window -n '%%'"
+#  modes
+setw -g clock-mode-colour colour5
+setw -g mode-style 'fg=colour1 bg=colour18 bold'
 
-# reload config
-bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+# panes
+set -g pane-border-style 'fg=colour19 bg=colour0'
+set -g pane-active-border-style 'bg=colour0 fg=colour9'
 
-# auto window rename
-set-window-option -g automatic-rename
+# statusbar
+set -g status-position bottom
+set -g status-justify left
+set -g status-style 'bg=colour18 fg=colour137 dim'
+set -g status-left ''
+set -g status-right '#[fg=colour233,bg=colour19] %d/%m #[fg=colour233,bg=colour8] %H:%M:%S '
+set -g status-right-length 50
+set -g status-left-length 20
 
-# window indexes
-set -g base-index 1
+setw -g window-status-current-style 'fg=colour1 bg=colour19 bold'
+setw -g window-status-current-format ' #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249]#F '
 
-# No delay for escape key press
-set -sg escape-time 0
+setw -g window-status-style 'fg=colour9 bg=colour18'
+setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
-# color
-set -g default-terminal "screen-256color"
+setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
 
-# THEME
-set-option -g status-position top
-set -g status-bg black
-set -g status-fg white
-set -g window-status-current-bg-style white
-set -g window-status-current-fg-style black
-set -g window-status-current-attr-style bold
-set -g status-interval-style 60
-set -g status-left-length-style 30
-set -g status-left-style ''
-set -g status-right-style '#[fg=green]#(whoami) #[fg=yellow]#S #[fg=white]#[bold]%H:%M'
-setw -g window-status-current-format-style "#I:#W"
-setw -g window-status-format-style "#I:#W"
-
-# statusline theme
-# source "$HOME/.tmux/statusline"
-
-# Vi copy/paste mode
-set-window-option -g mode-keys vi
+# messages
+set -g message-style 'fg=colour232 bg=colour16 bold'
