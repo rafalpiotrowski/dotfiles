@@ -126,3 +126,8 @@ sudo modprobe -a uvcvideo
 ```
 sudo apt install powertop
 ```
+
+# rust analyzer
+```
+rustup run stable rust-analyzer
+```

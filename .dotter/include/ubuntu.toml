@@ -3,3 +3,6 @@ install = "sudo apt install"
 uninstall = "sudo apt remove"
 update = "sudo apt update && sudo apt full-upgrade"
 autoremove = "sudo apt autoremove"
+
+[i3.variables]
+two_screens = "true"

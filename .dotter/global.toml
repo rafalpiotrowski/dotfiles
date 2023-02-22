@@ -35,7 +35,6 @@ depends = ["shell"]
 cargo = "~/.cargo/config"
 
 [vim.files]
-# Optional local variables: arm
 nvim = "~/.config/nvim"
 
 [graphics.variables.colors]
@@ -78,8 +77,13 @@ white        = "dddddd"
 depends = ["shell"]
 
 [zsh.files]
-zprofile = "~/.zprofile"
+zshenv = "~/.zshenv"
 zshrc = "~/.zshrc"
 
 [zsh.variables]
+
+[i3.files]
+i3 = "~/.config/i3/config"
+
+[i3.variables]
 
