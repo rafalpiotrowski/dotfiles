@@ -45,6 +45,8 @@ exec xrandr --output DP-1 --auto --right-of DVI-D-1
 
 exec ulauncher
 
+exec ssh_agent
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -202,3 +204,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/dziki/.i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/dziki/.i3/workspace-2.json'"
