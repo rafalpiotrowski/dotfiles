@@ -205,5 +205,3 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/dziki/.i3/workspace-1.json'"
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/dziki/.i3/workspace-2.json'"

@@ -131,3 +131,9 @@ sudo apt install powertop
 ```
 rustup run stable rust-analyzer
 ```
+
+# i3 layout manager
+[https://github.com/klaxalk/i3-layout-manager]
+
+# lsp TypeScript
+requires nodejs and npm to be installed
