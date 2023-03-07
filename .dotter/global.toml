@@ -87,3 +87,7 @@ i3 = "~/.config/i3/config"
 
 [i3.variables]
 
+[nuget.files]
+nuget = "~/.nuget/NuGet/NuGet.Config"
+
+[nuget.variables]
