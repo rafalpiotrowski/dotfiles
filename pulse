@@ -1,0 +1,1 @@
+load-module module-alsa-source device=hw:2,0

@@ -4,9 +4,12 @@ export RIDER_HOME=$HOME/Rider
 export PATH=$HOME/bin:$HOME/.cargo/bin:$RIDER_HOME/bin:$PATH
 export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
+# .NET Code 
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+
 # Environment-local
 export PATH=$HOME/.cargo-target/release:$PATH
-export PATH=$PATH:$HOME/.dotnet
 export PATH=$PATH:$HOME/.local/bin
 
 # Rust stuff
