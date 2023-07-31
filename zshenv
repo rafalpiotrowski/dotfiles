@@ -1,3 +1,7 @@
+#JAVA
+export JAVA_HOME=$HOME/jdk-11.0.18
+export PATH=$JAVA_HOME/bin:$PATH
+
 # JetBrain Rider
 export RIDER_HOME=$HOME/Rider
 

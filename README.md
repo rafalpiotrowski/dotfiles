@@ -8,6 +8,9 @@ cargo install dotter
 [https://github.com/SuperCuber/dotter]
 samples [https://github.com/SuperCuber/dotfiles]
 
+# plugin manager
+NvChadUpdate [https://nvchad.com/]
+
 # extra software used
 
 ## solaar 
