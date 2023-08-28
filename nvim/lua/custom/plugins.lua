@@ -9,6 +9,20 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+  },
+  {
+    "dreamsofcode-io/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    config = function()
+      require("chatgpt").setup({
+        async_api_key_cmd = "op read op://APIKeys/openai/credential",
+      })
+    end,
   }
 }
 return plugins
