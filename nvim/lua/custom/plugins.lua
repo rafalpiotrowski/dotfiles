@@ -11,7 +11,7 @@ local plugins = {
     end,
   },
   {
-    "dreamsofcode-io/ChatGPT.nvim",
+    "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
