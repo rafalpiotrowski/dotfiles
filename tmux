@@ -1,69 +1,89 @@
-# remap prefix from 'C-b' to 'C-a'
+# Based on https://www.barbarianmeetscoding.com/blog/2019/12/25/jaimes-guide-to-tmux-the-most-awesome-tool-you-didnt-know-you-needed
+
+# Default Shell
+set-option -g default-shell /usr/bin/fish
+
+# Increase scroll-back history
+set -g history-limit 5000
+
+# Use vim key bindings
+setw -g mode-keys vi
+
+# Decrease command delay
+set -sg escape-time 1
+
+# Set Tmux Prefix to Ctl+a
 unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
+set -g prefix C-a
+bind C-a send-prefix
 
-# split panes using | and -
-bind \ split-window -h
-bind - split-window -v
-unbind '"'
-unbind %
-
-# reload config file (change file location to your the tmux.conf you want to use)
-bind r source-file ~/.tmux.conf
-
-# switch panes using Alt-arrow without prefix
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
-
-# Enable mouse control (clickable windows, panes, resizable panes)
-set -g mouse-select-window on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-
-# Enable mouse mode (tmux 2.1 and above)
+# Enable Mouse
 set -g mouse on
 
-# don't rename windows automatically
-set-option -g allow-rename off
+# Reload Config
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded tmux config!"
+
+# Panes Window Splitting
+unbind %
+bind | split-window -h
+unbind '"'
+bind - split-window -v
+
+# Vim Switch Panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+#####################
+# Status Bar
+#####################
+
+# Enable UTF-8 Support
+set -gq status-utf8 on
+
+# Center Status Bar
+set -g status-justify centre
 
 ######################
-### DESIGN CHANGES ###
+# Colors
 ######################
 
-# loud or quiet?
-set -g visual-activity off
-set -g visual-bell off
-set -g visual-silence off
-setw -g monitor-activity off
-set -g bell-action none
+# Based on Inksea VSCode Theme
+# https://github.com/inksea/inksea-theme/blob/master/src/inksea-dark.yml
 
-#  modes
-setw -g clock-mode-colour colour5
-setw -g mode-style 'fg=colour1 bg=colour18 bold'
+# Syntax Highlighting for MacOS, Linux, and WSL
+# https://github.com/tmux/tmux/issues/699#issuecomment-595673763
 
-# panes
-set -g pane-border-style 'fg=colour19 bg=colour0'
-set -g pane-active-border-style 'bg=colour0 fg=colour9'
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+set -g default-terminal "screen.xterm-256color"
 
-# statusbar
-set -g status-position bottom
-set -g status-justify left
-set -g status-style 'bg=colour18 fg=colour137 dim'
-set -g status-left ''
-set -g status-right '#[fg=colour233,bg=colour19] %d/%m #[fg=colour233,bg=colour8] %H:%M:%S '
-set -g status-right-length 50
-set -g status-left-length 20
+# Pane border
+set -g pane-border-style fg='#6272a4'
+set -g pane-active-border-style fg='#FF9AC1'
 
-setw -g window-status-current-style 'fg=colour1 bg=colour19 bold'
-setw -g window-status-current-format ' #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249]#F '
+# Message Style
+set -g message-style bg='#1a1d21',fg='#c4cad1'
 
-setw -g window-status-style 'fg=colour9 bg=colour18'
-setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+# Status Style
+set -g status-style bg='#1a1d21',fg='#c4cad1'
 
-setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
+# window status
+set-window-option -g window-status-style fg='#c4cad1',bg='#1a1d21'
+set-window-option -g window-status-current-style fg='#ff79c6',bg='#282a36'
 
-# messages
-set -g message-style 'fg=colour232 bg=colour16 bold'
+# Status Left
+set -g status-left '#{?client_prefix,#[fg=#6FC1FF],} HYPER '
+
+# Status Window
+set-window-option -g window-status-style fg='#c4cad1',bg=default
+set-window-option -g window-status-current-style fg='#FF9AC1',bg='#282a36'
+set -g window-status-current-format "#[fg=#FF9AC1]#[bg=#1a1d21] #T"
+
+# Status Right
+set -g status-right '#[fg=#B084EB] %d %b %R '
+
+# update status bar info
+set -g status-interval 60

@@ -12,6 +12,10 @@ export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/li
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 
+# GO
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # Environment-local
 export PATH=$HOME/.cargo-target/release:$PATH
 export PATH=$PATH:$HOME/.local/bin
@@ -27,3 +31,8 @@ export HIST_IGNORE="clear:bg:fg:cd:cd -:cd ..:exit:date:w:* --help:ls:l:ll:lll"
 
 # 1password service account token
 export OP_SERVICE_ACCOUNT_TOKEN=
+
+#AERON
+export AERON_HOME=$HOME/code/aeron
+export AERON_C_BIN=$AERON_HOME/cppbuild/Release/binaries
+export PATH=$PATH:$AERON_C_BIN

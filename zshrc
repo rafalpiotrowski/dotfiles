@@ -65,7 +65,7 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias glg="git log --all --oneline --graph --decorate"
-alias go="git checkout"
+alias gco="git checkout"
 alias gpl="git pull --prune"
 alias gps="git push"
 alias gs="git status -sb"
@@ -214,8 +214,43 @@ _dotnet_zsh_complete()
 
 compdef _dotnet_zsh_complete dotnet
 
+# zsh parameter completion for the cargo CLI
 
+_cargo_zsh_complete() 
+{
+  local completions=("$(cargo complete "$words")")
 
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _cargo_zsh_complete cargo
+
+# zsh parameter completion for the rustup CLI
+
+_rustup_zsh_complete() 
+{
+  local completions=("$(rustup complete "$words")")
+
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _rustup_zsh_complete rustup
 
 # Terminal color
 TERM=xterm-256color
