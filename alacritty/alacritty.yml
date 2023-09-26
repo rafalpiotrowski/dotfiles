@@ -1,10 +1,26 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux"
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
+# Entries in `shell.args` are passed unmodified as arguments to the shell.
+#
+# Default:
+#   - (macOS) /bin/bash --login
+#   - (Linux) user login shell
+#   - (Windows) powershell
+# shell:
+# program: /usr/bin/zsh
+#  args:
+#    - --login
+#shell:
+#  program: /bin/zsh
+#  args:
+#    - -l
+#    - -c
+#    - "tmux"
+
+#import:
+# - ~/.config/alacritty/themes/argonaut.yaml
 
 window:
   # Window padding (changes require restart)
@@ -50,11 +66,11 @@ scrolling:
   multiplier: 3
 
 # Font configuration (changes require restart)
-#font:
-#  normal:
+font:
+  normal:
     # Font family
-#    family: "JetBrains Mono"
-#    style: Regular
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
 
   # Point size
   size: 11.0
@@ -152,20 +168,6 @@ cursor:
 
 # Live config reload (changes require restart)
 live_config_reload: true
-
-# Shell
-#
-# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
-# Entries in `shell.args` are passed unmodified as arguments to the shell.
-#
-# Default:
-#   - (macOS) /bin/bash --login
-#   - (Linux) user login shell
-#   - (Windows) powershell
-# shell:
-# program: /usr/bin/zsh
-#  args:
-#    - --login
 
 # Startup directory
 #

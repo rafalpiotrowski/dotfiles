@@ -141,5 +141,9 @@ rustup run stable rust-analyzer
 # lsp TypeScript
 requires nodejs and npm to be installed
 
-#nosnap.pref
+# nosnap.pref
 removed from /etc/apt/preferences.d/nosnap.pref
+
+# Oh My Zsh
+
+https://github.com/ohmyzsh/ohmyzsh

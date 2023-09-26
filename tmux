@@ -1,7 +1,12 @@
 # Based on https://www.barbarianmeetscoding.com/blog/2019/12/25/jaimes-guide-to-tmux-the-most-awesome-tool-you-didnt-know-you-needed
 
+# Set Tmux Prefix to Ctl+a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
 # Default Shell
-set-option -g default-shell /usr/bin/fish
+set-option -g default-shell /bin/zsh
 
 # Increase scroll-back history
 set -g history-limit 5000
@@ -12,11 +17,6 @@ setw -g mode-keys vi
 # Decrease command delay
 set -sg escape-time 1
 
-# Set Tmux Prefix to Ctl+a
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
-
 # Enable Mouse
 set -g mouse on
 
@@ -26,9 +26,12 @@ bind r source-file ~/.tmux.conf \; display "Reloaded tmux config!"
 
 # Panes Window Splitting
 unbind %
-bind | split-window -h
+#bind | split-window -h
+bind '\' split-window -h
+#unbind '"'
+#bind - split-window -v
 unbind '"'
-bind - split-window -v
+bind '/' split-window -v
 
 # Vim Switch Panes
 bind h select-pane -L

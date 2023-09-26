@@ -37,42 +37,6 @@ cargo = "~/.cargo/config.toml"
 [vim.files]
 nvim = "~/.config/nvim"
 
-[graphics.variables.colors]
-background = "222222"
-background_alt = "444444"
-background_bright = "666666"
-text_muted = "666666"
-text = "dedede"
-text_bright = "ffffff"
-accent = "bd2c40"
-
-[graphics.variables.colors16]
-background   = "151515"
-foreground   = "d7d0c7"
-cursor       = "d7d0c7"
-# In terminal color index order
-black        = "101010"
-red          = "e84f4f"
-green        = "b8d68c"
-yellow       = "e1aa5d"
-blue         = "7dc1cf"
-purple       = "9b64fb"
-cyan         = "6d878d"
-light_gray   = "dddddd"
-dark_gray    = "404040"
-light_red    = "d23d3d"
-light_green  = "a0cf5d"
-light_yellow = "f39d21"
-light_blue   = "4e9fb1"
-light_purple = "8542ff"
-light_cyan   = "42717b"
-white        = "dddddd"
-
-#[graphics.variables.font]
-#regular = "Ubuntu"
-#monospace = "Fira Code"
-#size = 12
-
 [zsh]
 depends = ["shell"]
 
@@ -97,13 +61,7 @@ pulse = "~/.pulse/default.pa"
 
 [pulse.variables]
 
-[fish.files]
-fish = "~/.config/fish/config.fish"
-fish_variables = "~/.config/fish/fish_variables"
-
-[fish.variables]
-
 [alacritty.files]
-alacritty = "~/.config/alacritty/alacritty.yml"
+alacritty = "~/.config/alacritty"
 
 [alacritty.variables]
