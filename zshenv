@@ -2,6 +2,10 @@
 export SNAP_BIN=/snap/bin
 export PATH=$SNAP_BIN:$PATH
 
+#NVIM manual installation
+export NVIM_HOME=~/nvim
+export PATH=$NVIM_HOME/bin:$PATH
+
 #JAVA
 export JAVA_HOME=$HOME/jdk-11.0.18
 export PATH=$JAVA_HOME/bin:$PATH
