@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,7 +38,7 @@ exec --no-startup-id nm-applet
 {{#if two_screens}}
 # enable multi screen output
 # todo: make this generic
-exec xrandr --output DP-1 --auto --right-of DVI-D-1
+exec xrandr --output DP-1 --mode 2560x1440 --left-of DVI-I-1
 {{else}}
 # define two_screens = "true" in local include file to have 2 screens
 {{/if}}
@@ -205,3 +205,48 @@ bar {
         status_command i3status
 }
 
+set $i3_resurrect i3-resurrect
+
+# Save workspace mode.
+mode "save" {
+  bindsym 1 exec $i3_resurrect save -w 1
+  bindsym 2 exec $i3_resurrect save -w 2
+  bindsym 3 exec $i3_resurrect save -w 3
+  bindsym 4 exec $i3_resurrect save -w 4
+  bindsym 5 exec $i3_resurrect save -w 5
+  bindsym 6 exec $i3_resurrect save -w 6
+  bindsym 7 exec $i3_resurrect save -w 7
+  bindsym 8 exec $i3_resurrect save -w 8
+  bindsym 9 exec $i3_resurrect save -w 9
+  bindsym 0 exec $i3_resurrect save -w 0
+
+  # Back to normal: Enter, Escape, or s
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym m mode "default"
+  bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "save"
+
+# Restore workspace mode.
+mode "restore" {
+  bindsym 1 exec $i3_resurrect restore -w 1
+  bindsym 2 exec $i3_resurrect restore -w 2
+  bindsym 3 exec $i3_resurrect restore -w 3
+  bindsym 4 exec $i3_resurrect restore -w 4
+  bindsym 5 exec $i3_resurrect restore -w 5
+  bindsym 6 exec $i3_resurrect restore -w 6
+  bindsym 7 exec $i3_resurrect restore -w 7
+  bindsym 8 exec $i3_resurrect restore -w 8
+  bindsym 9 exec $i3_resurrect restore -w 9
+  bindsym 0 exec $i3_resurrect restore -w 0
+
+  # Back to normal: Enter, Escape, or n
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym n mode "default"
+  bindsym $mod+n mode "default"
+}
+
+bindsym $mod+n mode "restore"

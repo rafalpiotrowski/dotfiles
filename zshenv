@@ -7,7 +7,7 @@ export NVIM_HOME=~/nvim
 export PATH=$NVIM_HOME/bin:$PATH
 
 #JAVA
-export JAVA_HOME=$HOME/jdk-11.0.18
+export JAVA_HOME=$HOME/jdk-17.0.8
 export PATH=$JAVA_HOME/bin:$PATH
 
 # JetBrain Rider
@@ -44,3 +44,9 @@ export OP_SERVICE_ACCOUNT_TOKEN=
 export AERON_HOME=$HOME/code/aeron
 export AERON_C_BIN=$AERON_HOME/cppbuild/Release/binaries
 export PATH=$PATH:$AERON_C_BIN
+
+# ODIN
+export ODIN_HOME=$HOME/odin
+export PATH=$PATH:$ODIN_HOME
+
+export PATH="$PATH:/home/dziki/.foundry/bin"
