@@ -8,8 +8,23 @@ cargo install dotter
 [https://github.com/SuperCuber/dotter]
 samples [https://github.com/SuperCuber/dotfiles]
 
-# plugin manager
-NvChadUpdate [https://nvchad.com/]
+# nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo tar -C ~/nvim -xzf nvim-linux-x86_64.tar.gz
+
+## clear nvim cache
+rm -rf ~/.config/nvim/
+cd ~/.dotfiles
+dotter
+
+
+## plugin manager Packer
+https://github.com/wbthomason/packer.nvim
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 
 # extra software used
 
@@ -140,6 +155,12 @@ rustup run stable rust-analyzer
 
 # lsp TypeScript
 requires nodejs and npm to be installed
+sudo apt remove nodejs
+npm install -g npm@latest
+
+curl -LO https://nodejs.org/dist/v22.15.0/node-v22.15.0-linux-x64.tar.xz
+tar -C ~/node -xf nvim-linux-x86_64.tar.gz
+
 
 # nosnap.pref
 removed from /etc/apt/preferences.d/nosnap.pref

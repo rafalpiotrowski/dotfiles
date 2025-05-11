@@ -49,4 +49,8 @@ export PATH=$PATH:$AERON_C_BIN
 export ODIN_HOME=$HOME/odin
 export PATH=$PATH:$ODIN_HOME
 
+# NODE
+export NODE_HOME=~/node/node-v22.15.0-linux-x64
+export PATH=$PATH:$NODE_HOME/bin
+
 export PATH="$PATH:/home/dziki/.foundry/bin"
